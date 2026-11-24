@@ -1,0 +1,476 @@
+{
+  "fixture_name": "winter_internship_2026_mandatory_benchmark",
+  "fixture_version": 1,
+  "description": "Mandatory end-to-end benchmark input data from Section 5 of the Winter Internship 2026 problem statement.",
+  "source": {
+    "authoritative_document": "Problem Statement - Winter Internship Application - 2026 .pdf",
+    "section": "5. Benchmark scenario (mandatory)",
+    "supporting_document": "Business_Rules_and_Benchmark.docx"
+  },
+  "currency": "INR",
+  "factory": {
+    "state": "Tamil Nadu",
+    "country": "India"
+  },
+  "configuration": {
+    "inventory_valuation_method": "MOVING_WEIGHTED_AVERAGE",
+    "quantity_precision": 3,
+    "money_precision": 2,
+    "unit_cost_precision": 6,
+    "production_variance_tolerance_percent": "3.00",
+    "gst_rate_percent": "5.00",
+    "intra_state_tax": {
+      "cgst_rate_percent": "2.50",
+      "sgst_rate_percent": "2.50",
+      "igst_rate_percent": "0.00"
+    },
+    "inter_state_tax": {
+      "cgst_rate_percent": "0.00",
+      "sgst_rate_percent": "0.00",
+      "igst_rate_percent": "5.00"
+    }
+  },
+  "users": [
+    {
+      "fixture_key": "factory_admin",
+      "role": "Factory Admin",
+      "display_name": "Factory Admin"
+    },
+    {
+      "fixture_key": "salesman_a",
+      "role": "Salesman",
+      "display_name": "Salesman A"
+    },
+    {
+      "fixture_key": "salesman_b",
+      "role": "Salesman",
+      "display_name": "Salesman B"
+    },
+    {
+      "fixture_key": "production_supervisor",
+      "role": "Production Supervisor",
+      "display_name": "Production Supervisor"
+    },
+    {
+      "fixture_key": "accountant_auditor",
+      "role": "Accountant/Auditor",
+      "display_name": "Accountant/Auditor"
+    },
+    {
+      "fixture_key": "owner",
+      "role": "Owner",
+      "display_name": "Owner"
+    }
+  ],
+  "customers": [
+    {
+      "fixture_key": "retailer_a",
+      "customer_name": "Retailer A",
+      "customer_type": "Retailer",
+      "state": "Tamil Nadu",
+      "assigned_salesman_key": "salesman_a"
+    },
+    {
+      "fixture_key": "distributor_b",
+      "customer_name": "Distributor B",
+      "customer_type": "Distributor",
+      "state": "Karnataka",
+      "assigned_salesman_key": "salesman_b"
+    }
+  ],
+  "suppliers": [
+    {
+      "fixture_key": "flour_supplier",
+      "supplier_name": "Flour Supplier",
+      "is_fixture_placeholder": true
+    }
+  ],
+  "inventory_items": [
+    {
+      "fixture_key": "flour",
+      "item_code": "BENCH-RM-FLOUR",
+      "item_name": "Flour",
+      "item_type": "RAW_MATERIAL",
+      "base_unit": "kg",
+      "opening_quantity": "100.000",
+      "opening_unit_cost": "42.000000"
+    },
+    {
+      "fixture_key": "cooking_oil",
+      "item_code": "BENCH-RM-OIL",
+      "item_name": "Cooking Oil",
+      "item_type": "RAW_MATERIAL",
+      "base_unit": "L",
+      "opening_quantity": "30.000",
+      "opening_unit_cost": "140.000000"
+    },
+    {
+      "fixture_key": "spice_mix",
+      "item_code": "BENCH-RM-SPICE",
+      "item_name": "Salt and Spice Mix",
+      "item_type": "RAW_MATERIAL",
+      "base_unit": "kg",
+      "opening_quantity": "5.000",
+      "opening_unit_cost": "200.000000"
+    },
+    {
+      "fixture_key": "pouch_200g",
+      "item_code": "BENCH-PM-POUCH-200G",
+      "item_name": "200 g Pouch",
+      "item_type": "PACKAGING_MATERIAL",
+      "base_unit": "piece",
+      "opening_quantity": "500.000",
+      "opening_unit_cost": "2.500000"
+    },
+    {
+      "fixture_key": "carton_20",
+      "item_code": "BENCH-PM-CARTON-20",
+      "item_name": "Carton",
+      "item_type": "PACKAGING_MATERIAL",
+      "base_unit": "piece",
+      "capacity_packets": "20.000",
+      "opening_quantity": "30.000",
+      "opening_unit_cost": "15.000000"
+    },
+    {
+      "fixture_key": "murukku_200g",
+      "item_code": "BENCH-FG-MURUKKU-200G",
+      "item_name": "Murukku 200 g",
+      "item_type": "FINISHED_PRODUCT",
+      "base_unit": "packet",
+      "pack_size": "200.000",
+      "pack_unit": "g",
+      "selling_price": "50.00",
+      "gst_rate_percent": "5.00",
+      "opening_quantity": "50.000",
+      "opening_unit_cost": null
+    }
+  ],
+  "bom": {
+    "fixture_key": "murukku_200g_bom_v1",
+    "product_key": "murukku_200g",
+    "version": 1,
+    "standard_batch_size": "1.000",
+    "expected_output": "200.000",
+    "output_unit": "packet",
+    "items": [
+      {
+        "item_key": "flour",
+        "quantity_required": "40.000",
+        "unit": "kg"
+      },
+      {
+        "item_key": "cooking_oil",
+        "quantity_required": "10.000",
+        "unit": "L"
+      },
+      {
+        "item_key": "spice_mix",
+        "quantity_required": "1.200",
+        "unit": "kg"
+      },
+      {
+        "item_key": "pouch_200g",
+        "quantity_required": "200.000",
+        "unit": "piece"
+      },
+      {
+        "item_key": "carton_20",
+        "quantity_required": "10.000",
+        "unit": "piece"
+      }
+    ]
+  },
+  "benchmark_steps": [
+    {
+      "step": 1,
+      "operation": "PURCHASE_AND_RECEIVE",
+      "fixture_key": "flour_purchase",
+      "supplier_key": "flour_supplier",
+      "items": [
+        {
+          "item_key": "flour",
+          "quantity": "60.000",
+          "unit": "kg",
+          "unit_price": "45.00"
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "operation": "START_PRODUCTION_AND_ISSUE_MATERIALS",
+      "fixture_key": "murukku_production_run",
+      "product_key": "murukku_200g",
+      "bom_key": "murukku_200g_bom_v1",
+      "planned_output": "200.000",
+      "materials": [
+        {
+          "item_key": "flour",
+          "issued_quantity": "40.000",
+          "actual_consumption": "40.000",
+          "wasted_quantity": "0.000",
+          "returned_quantity": "0.000",
+          "unit": "kg"
+        },
+        {
+          "item_key": "cooking_oil",
+          "issued_quantity": "10.500",
+          "actual_consumption": "10.500",
+          "wasted_quantity": "0.000",
+          "returned_quantity": "0.000",
+          "unit": "L"
+        },
+        {
+          "item_key": "spice_mix",
+          "issued_quantity": "1.200",
+          "actual_consumption": "1.200",
+          "wasted_quantity": "0.000",
+          "returned_quantity": "0.000",
+          "unit": "kg"
+        },
+        {
+          "item_key": "pouch_200g",
+          "issued_quantity": "194.000",
+          "actual_consumption": "188.000",
+          "wasted_quantity": "6.000",
+          "returned_quantity": "0.000",
+          "unit": "piece"
+        },
+        {
+          "item_key": "carton_20",
+          "issued_quantity": "9.000",
+          "actual_consumption": "9.000",
+          "wasted_quantity": "0.000",
+          "returned_quantity": "0.000",
+          "unit": "piece"
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "operation": "COMPLETE_PRODUCTION",
+      "production_run_key": "murukku_production_run",
+      "output": {
+        "product_key": "murukku_200g",
+        "good_quantity": "188.000",
+        "rejected_quantity": "0.000",
+        "unit": "packet"
+      },
+      "damaged_packaging": {
+        "item_key": "pouch_200g",
+        "quantity": "6.000",
+        "unit": "piece"
+      },
+      "cartons_used": {
+        "item_key": "carton_20",
+        "quantity": "9.000",
+        "unit": "piece"
+      }
+    },
+    {
+      "step": 4,
+      "operation": "CREATE_SALES_ORDER",
+      "fixture_key": "retailer_a_order",
+      "customer_key": "retailer_a",
+      "salesman_key": "salesman_a",
+      "channel": "MOBILE",
+      "items": [
+        {
+          "product_key": "murukku_200g",
+          "quantity": "150.000",
+          "unit": "packet",
+          "unit_price": "50.00",
+          "gst_rate_percent": "5.00"
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "operation": "APPROVE_INVOICE_AND_DISPATCH",
+      "sales_order_key": "retailer_a_order",
+      "approver_key": "factory_admin",
+      "invoice": {
+        "fixture_key": "retailer_a_invoice",
+        "invoice_type": "TAX_INVOICE",
+        "place_of_supply_state": "Tamil Nadu"
+      },
+      "dispatch": {
+        "fixture_key": "retailer_a_dispatch",
+        "product_key": "murukku_200g",
+        "quantity": "150.000",
+        "unit": "packet"
+      }
+    },
+    {
+      "step": 6,
+      "operation": "CREATE_SALES_ORDER_AND_CHECK_STOCK",
+      "fixture_key": "distributor_b_order",
+      "customer_key": "distributor_b",
+      "salesman_key": "salesman_b",
+      "items": [
+        {
+          "product_key": "murukku_200g",
+          "quantity": "120.000",
+          "unit": "packet",
+          "unit_price": "50.00",
+          "gst_rate_percent": "5.00"
+        }
+      ],
+      "place_of_supply_state": "Karnataka",
+      "on_insufficient_stock": "FLAG_SHORTAGE_AND_PREVENT_INVALID_DISPATCH"
+    },
+    {
+      "step": 7,
+      "operation": "RECORD_AND_ALLOCATE_PAYMENT",
+      "fixture_key": "retailer_a_payment",
+      "customer_key": "retailer_a",
+      "invoice_key": "retailer_a_invoice",
+      "amount": "4000.00",
+      "currency": "INR"
+    },
+    {
+      "step": 8,
+      "operation": "RECORD_PRODUCTION_EXPENSES_AND_RECALCULATE_COST",
+      "production_run_key": "murukku_production_run",
+      "expenses": [
+        {
+          "expense_category": "LABOUR",
+          "amount": "1200.00"
+        },
+        {
+          "expense_category": "GAS_AND_POWER",
+          "amount": "600.00"
+        }
+      ],
+      "repost_inventory_movements": false
+    },
+    {
+      "step": 9,
+      "operation": "GENERATE_MONTHLY_REPORTS",
+      "reports": [
+        "SALES_REGISTER",
+        "PURCHASE_REGISTER",
+        "STOCK_SUMMARY",
+        "STOCK_LEDGER",
+        "PRODUCTION_REPORT",
+        "PAYMENTS_AND_COLLECTIONS",
+        "OUTSTANDING_RECEIVABLES",
+        "GST_SUMMARY"
+      ]
+    }
+  ],
+  "expected_results": {
+    "source": "Original problem statement Section 5 and Business_Rules_and_Benchmark.docx",
+    "stock_balances": [
+      {
+        "item_key": "flour",
+        "quantity": "120.000",
+        "unit": "kg"
+      },
+      {
+        "item_key": "cooking_oil",
+        "quantity": "19.500",
+        "unit": "L"
+      },
+      {
+        "item_key": "spice_mix",
+        "quantity": "3.800",
+        "unit": "kg"
+      },
+      {
+        "item_key": "pouch_200g",
+        "quantity": "306.000",
+        "unit": "piece"
+      },
+      {
+        "item_key": "carton_20",
+        "quantity": "21.000",
+        "unit": "piece"
+      }
+    ],
+    "finished_goods": {
+      "product_key": "murukku_200g",
+      "after_production": "238.000",
+      "after_retailer_a_dispatch": "88.000",
+      "unit": "packet"
+    },
+    "production_variances": {
+      "yield": {
+        "expected_good_output": "200.000",
+        "actual_good_output": "188.000",
+        "variance_percent": "-6.00",
+        "should_flag": true
+      },
+      "cooking_oil": {
+        "standard_quantity": "10.000",
+        "actual_quantity": "10.500",
+        "variance_percent": "5.00",
+        "should_flag": true
+      }
+    },
+    "retailer_a_invoice": {
+      "taxable_amount": "7500.00",
+      "cgst_amount": "187.50",
+      "sgst_amount": "187.50",
+      "igst_amount": "0.00",
+      "total_amount": "7875.00",
+      "payment_amount": "4000.00",
+      "outstanding_amount": "3875.00"
+    },
+    "distributor_b_stock_check": {
+      "requested_quantity": "120.000",
+      "available_quantity": "88.000",
+      "shortage_quantity": "32.000",
+      "invalid_dispatch_must_be_prevented": true,
+      "gst_type_if_invoiced": "IGST"
+    },
+    "production_costing": {
+      "valuation_method": "MOVING_WEIGHTED_AVERAGE",
+      "flour_weighted_average_unit_cost": "43.125000",
+      "material_cost": "3435.00",
+      "packaging_cost": "620.00",
+      "total_material_and_packaging_cost": "4055.00",
+      "overhead_cost": "1800.00",
+      "total_production_cost": "5855.00",
+      "good_output": "188.000",
+      "cost_per_good_packet_rounded": "31.14",
+      "selling_price_before_gst": "50.00"
+    }
+  },
+  "documented_assumptions_and_discrepancies": [
+    {
+      "code": "CARTON_CAPACITY_DISCREPANCY",
+      "description": "Nine cartons with a capacity of 20 packets each account for 180 packets, while the production run records 188 good packets.",
+      "required_handling": "Preserve nine cartons consumed and 188 good packets. Do not invent an additional carton or alter production output."
+    },
+    {
+      "code": "OPENING_FINISHED_GOODS_VALUATION_UNSPECIFIED",
+      "description": "The original problem statement specifies 50 opening finished packets but does not specify their opening unit cost.",
+      "required_handling": "This derived opening valuation was approved by the user for this demonstration. Do not represent it as a source-provided value; use only as BENCHMARK_OPENING_FG_UNIT_COST.",
+      "user_approved_value_per_packet": "19.850000",
+      "calculation": "(40 kg x INR 42/kg + 10 L x INR 140/L + 1.2 kg x INR 200/kg + 200 pouches x INR 2.50 + 10 cartons x INR 15) / 200 packets = INR 19.85 per packet."
+    },
+    {
+      "code": "BENCHMARK_IDENTITIES_AND_DATES_UNSPECIFIED",
+      "description": "The source specifies user roles, customer names, and transaction order but not real user credentials, supplier identity, transaction dates, or document numbers.",
+      "required_handling": "Generate non-sensitive demonstration identifiers and appropriate dates during seeding. Do not treat placeholder identities as source-provided facts."
+    },
+    {
+      "code": "BENCHMARK_GST_ASSUMPTION",
+      "description": "The 5% GST rate is prescribed for benchmark testing.",
+      "required_handling": "Use 5% for the benchmark without assuming it is the legally applicable rate for every real product."
+    }
+  ],
+  "unit_conversions": [
+    {
+      "from_unit": "kg",
+      "to_unit": "g",
+      "conversion_factor": "1000.000"
+    },
+    {
+      "from_unit": "L",
+      "to_unit": "mL",
+      "conversion_factor": "1000.000"
+    }
+  ]
+}

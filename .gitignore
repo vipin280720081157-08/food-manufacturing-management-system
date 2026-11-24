@@ -1,0 +1,23 @@
+# Backend database credentials
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Python virtual environment
+backend/.venv/
+
+# Local secrets, runtime output, and generated artifacts
+.env
+.env.*
+!.env.example
+!backend/.env.example
+**/__pycache__/
+**/*.py[cod]
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+.tmp/
+*.log
+*.db
+*.sqlite
+*.sqlite3
